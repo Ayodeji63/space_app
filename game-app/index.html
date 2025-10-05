@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farm Guard - NASA Agricultural Game</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      .game-container {
+        position: relative;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      #game-canvas {
+        display: block;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+        width: 960px;
+        height: 600px;
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 20px;
+      }
+
+      .header h1 {
+        font-size: 2.5em;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      }
+
+      .header p {
+        font-size: 1.1em;
+        margin: 5px 0;
+        opacity: 0.9;
+      }
+
+      .controls {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .control-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      }
+
+      .control-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      }
+
+      .control-btn:active {
+        transform: translateY(0);
+      }
+
+      .education-link {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .info-panel {
+        background: rgba(0,0,0,0.7);
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+        max-width: 960px;
+      }
+
+      .info-panel h3 {
+        margin-top: 0;
+        color: #4CAF50;
+      }
+
+      .key-hints {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+
+      .key-hint {
+        background: rgba(255,255,255,0.1);
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>🌾 Farm Guard 🛰️</h1>
+      <p>NASA-Powered Agricultural Simulation Game</p>
+    </div>
+
+    <div class="game-container">
+      <canvas id="game-canvas" width="320" height="180"></canvas>
+    </div>
+
+    <div class="controls">
+      <button class="control-btn" id="optimal-btn">☀️ Optimal Weather</button>
+      <button class="control-btn" id="good-btn">⛅ Good Weather</button>
+      <button class="control-btn" id="stressed-btn">🌡️ Heat Stress</button>
+      <button class="control-btn" id="poor-btn">🌵 Drought</button>
+      <button class="control-btn education-link" onclick="window.open('https://earthobservatory.nasa.gov/', '_blank')">
+        📚 NASA Education
+      </button>
+    </div>
+
+    <div class="info-panel">
+      <h3>🎮 How to Play</h3>
+      <p><strong>Mission:</strong> Manage your farm using real NASA satellite data to grow healthy crops!</p>
+      <div class="key-hints">
+        <span class="key-hint">⬆️⬇️⬅️➡️ Move Hero</span>
+        <span class="key-hint">🖱️ Click NASA Buttons (right panel)</span>
+        <span class="key-hint">Walk over crops to harvest</span>
+        <span class="key-hint">Monitor NDVI for crop health</span>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
